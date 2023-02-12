@@ -20,14 +20,14 @@ const Contact = () => {
     e.preventDefault()
 
     emailjs
-      .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
+      .sendForm('service_nkml59n', 'template_qu6s52m', form.current, 'DK0TTXV3O9UpLuaxh')
       .then(
         () => {
-          alert('Message successfully sent!')
+          alert('Mensaje enviado correctamente!')
           window.location.reload(false)
         },
         () => {
-          alert('Failed to send the message, please try again')
+          alert('Error al enviar mensaje, intente nuevamente')
         }
       )
   }
@@ -85,20 +85,20 @@ const Contact = () => {
           </div>
         </div>
         <div className="info-map">
-          Slobodan Gajić,
+          Hurlingham,
           <br />
-          Serbia,
+          C.P. 1686,
           <br />
-          Branka RadiČevića 19, 22000 <br />
-          Sremska Mitrovica <br />
+          Buenos Aires <br />
+          Argentina <br />
           <br />
-          <span>freelancerslobodan@gmail.com</span>
+          <span>ezequielram@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+          <MapContainer center={[-34.588333, -58.639167]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
-              <Popup>Sloba lives here, come over for a cup of coffee :)</Popup>
+            <Marker position={[-34.588333, -58.639167]}>
+              <Popup>Aquí vivo yo, pasate por unos mates :)</Popup>
             </Marker>
           </MapContainer>
         </div>
