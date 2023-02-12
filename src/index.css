@@ -11,6 +11,12 @@ body {
   background: #022c43;
   overflow: hidden;
   display: block;
+  background-image: url('/src/assets/images/react-development.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
 }
 
 .dashboard {

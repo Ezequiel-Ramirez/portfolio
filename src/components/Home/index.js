@@ -2,35 +2,31 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
-import LogoTitle from '../../assets/images/logo-s.png'
+import LogoTitle from '../../assets/images/emoji.png'
 import Logo from './Logo'
 import './index.scss'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-
-  const nameArray = ['l', 'o', 'b', 'o', 'd', 'a', 'n']
-  const jobArray = [
-    'w',
-    'e',
-    'b',
-    ' ',
-    'd',
-    'e',
-    'v',
-    'e',
-    'l',
-    'o',
-    'p',
-    'e',
-    'r',
-    '.',
-  ]
+  
+  //create a function to generate the array of letters from the string
+  const generateArray = (str) => {
+    const arr = []
+    for (let i = 0; i < str.length; i++) {
+      arr.push(str[i])
+    }
+    return arr
+  }
 
   useEffect(() => {
-    return setTimeout(() => {
+    let timeoutId = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 4000)
+  }, 4000)
+  
+  return () => {
+              clearTimeout(timeoutId)
+          }
+   
   }, [])
 
   return (
@@ -46,25 +42,26 @@ const Home = () => {
             <img
               src={LogoTitle}
               alt="JavaScript Developer Name, Web Developer Name"
+              style={{ width: '50px', height: '50px', margin: '0 1px -5px 10px' }}
             />
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={nameArray}
+              strArray={generateArray('Ezequiel')}
               idx={15}
             />
             <br />
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={jobArray}
+              strArray={generateArray('Web developer')}
               idx={22}
             />
           </h1>
-          <h2>Front End Developer / JavaScript Expert / Youtuber</h2>
+          <h2>Full Stack Developer / Sr. React</h2>
           <Link to="/contact" className="flat-button">
             CONTACT ME
           </Link>
         </div>
-        <Logo />
+       {/*  <Logo /> */}
       </div>
 
       <Loader type="pacman" />
