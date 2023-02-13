@@ -5,12 +5,12 @@ import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD0tMij29qN8c7qwrRqZhsvyDNiVXSaT78",
-  authDomain: "portfolio-758ab.firebaseapp.com",
-  projectId: "portfolio-758ab",
-  storageBucket: "portfolio-758ab.appspot.com",
-  messagingSenderId: "313450693636",
-  appId: "1:313450693636:web:01ab0fcb6a47c941dc6151"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN, 
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 
