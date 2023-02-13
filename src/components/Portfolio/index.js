@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection } from "firebase/firestore";
 import { db } from '../../firebase';
 
 const Portfolio = () => { 
@@ -22,10 +22,12 @@ const Portfolio = () => {
     useEffect(() => {
         getPortfolio();
     }, []);
-
+    
     const getPortfolio = async () => {
         const querySnapshot = await getDocs(collection(db, 'portfolio'));
-        setPortfolio(querySnapshot.docs.map((doc) => doc.data()));
+        console.log(querySnapshot)
+        const data = querySnapshot.docs.map(doc => doc.data());
+        setPortfolio(data);
     }
 
     const renderPortfolio = (portfolio) => {
@@ -36,7 +38,10 @@ const Portfolio = () => {
                         return (
                             <div className="image-box" key={idx}>
                                 <img 
+                                
+                                //if don't use require, it will not work
                                 src={port.image}
+
                                 className="portfolio-image"
                                 alt="portfolio" />
                                 <div className="content">
@@ -65,6 +70,7 @@ const Portfolio = () => {
                         strArray={"Portfolio".split("")}
                         idx={15}
                     />
+              <p style={{color: '#ffd700', margin: '0'}}>Here are some of my projects, see more on github...</p>
                 </h1>
                 <div>{renderPortfolio(portfolio)}</div>
             </div>
